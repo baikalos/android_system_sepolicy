@@ -5,3 +5,5 @@
 ###
 
 type system_app, domain;
+
+allow system_app sysfs:file r_file_perms;

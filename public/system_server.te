@@ -5,6 +5,8 @@
 type system_server, domain;
 type system_server_tmpfs, file_type, mlstrustedobject;
 
+allow system_server sysfs:file r_file_perms;
+
 # Power controls for debugging/diagnostics
 get_prop(system_server, power_debug_prop)
 set_prop(system_server, power_debug_prop)
