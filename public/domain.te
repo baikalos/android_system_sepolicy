@@ -499,6 +499,7 @@ neverallow { domain -init } properties_serial:file { no_w_file_perms no_x_file_p
 # and invalidate dm-verity signatures.
 neverallow {
     domain
+    -init
     with_asan(`-asan_extract')
     recovery_only(`userdebug_or_eng(`-fastbootd')')
 } {

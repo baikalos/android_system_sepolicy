@@ -356,6 +356,7 @@ neverallow {
   domain
   -init
   -system_server
+  -system_app
 } {
   system_adbd_prop
 }:property_service set;
@@ -367,6 +368,7 @@ neverallow {
   -vendor_init
   -adbd
   -system_server
+  -system_app
 } {
   adbd_config_prop
 }:property_service set;
@@ -376,6 +378,8 @@ neverallow {
   domain
   -init
   -adbd
+  -system_server
+  -system_app
 } {
   adbd_prop
 }:property_service set;
@@ -471,6 +475,8 @@ neverallow {
 neverallow {
   domain
   -init
+  -system_server
+  -system_app
 } {
   init_service_status_private_prop
   init_service_status_prop
@@ -526,6 +532,7 @@ neverallow {
   -init
   -vendor_init
   -dumpstate
+  -system_server
   -system_app
 } oem_unlock_prop:file no_rw_file_perms;
 
@@ -609,6 +616,9 @@ neverallow {
 neverallow {
   domain
   -init
+  -shell
+  -system_app
+  -system_server
 } default_prop:property_service set;
 
 # Only one of system_property_type and vendor_property_type can be assigned.
