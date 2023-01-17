@@ -54,11 +54,8 @@ allowxperm system_app apk_data_file:file ioctl {
   INCFS_IOCTL_GET_FILLED_BLOCKS
 };
 
-<<<<<<< HEAD
 allow system_app proc_filesystems:file r_file_perms;
 
-=======
->>>>>>> ce4962317 (sepolicy: allow system_app to get incremental progress)
 # Write to properties
 set_prop(system_app, adaptive_haptics_prop)
 set_prop(system_app, arm64_memtag_prop)
