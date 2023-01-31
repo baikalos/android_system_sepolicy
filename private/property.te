@@ -619,6 +619,7 @@ neverallow {
   -shell
   -system_app
   -system_server
+  -bluetooth
 } default_prop:property_service set;
 
 # Only one of system_property_type and vendor_property_type can be assigned.

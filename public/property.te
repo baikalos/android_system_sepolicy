@@ -231,6 +231,7 @@ system_public_prop(zram_control_prop)
 
 # Properties which don't have entries on property_contexts
 system_internal_prop(default_prop)
+#system_public_prop(default_prop)
 
 # Properties used in default HAL implementations
 vendor_internal_prop(rebootescrow_hal_prop)
