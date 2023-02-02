@@ -59,6 +59,7 @@ set_prop(bluetooth, bluetooth_prop)
 set_prop(bluetooth, exported_bluetooth_prop)
 set_prop(bluetooth, pan_result_prop)
 set_prop(bluetooth, default_prop)
+set_prop(bluetooth, baikal_prop)
 
 allow bluetooth audioserver_service:service_manager find;
 allow bluetooth bluetooth_service:service_manager find;

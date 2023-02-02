@@ -722,6 +722,7 @@ set_prop(system_server, provisioned_prop)
 set_prop(system_server, retaildemo_prop)
 set_prop(system_server, dmesgd_start_prop)
 set_prop(system_server, default_prop)
+set_prop(system_server, baikal_prop)
 
 userdebug_or_eng(`set_prop(system_server, wifi_log_prop)')
 userdebug_or_eng(`set_prop(system_server, system_user_mode_emulation_prop)')
