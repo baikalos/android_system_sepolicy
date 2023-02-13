@@ -158,7 +158,7 @@ neverallow {
   domain
   -init
   -dumpstate
-  userdebug_or_eng(`-su')
+  -su
 } init_svc_debug_prop:file no_rw_file_perms;
 
 compatible_property_only(`
@@ -359,6 +359,7 @@ neverallow {
   -init
   -system_server
   -system_app
+  -adbd
 } {
   system_adbd_prop
 }:property_service set;

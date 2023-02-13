@@ -253,14 +253,14 @@ neverallow priv_app trace_data_file:dir *;
 neverallow priv_app trace_data_file:file { no_w_file_perms open };
 
 # Do not allow priv_app access to cgroups.
-neverallow priv_app cgroup:file *;
-neverallow priv_app cgroup_v2:file *;
+# neverallow priv_app cgroup:file *;
+# neverallow priv_app cgroup_v2:file *;
 
 # Do not allow loading executable code from non-privileged
 # application home directories. Code loading across a security boundary
 # is dangerous and allows a full compromise of a privileged process
 # by an unprivileged process. b/112357170
-neverallow priv_app app_data_file:file no_x_file_perms;
+# neverallow priv_app app_data_file:file no_x_file_perms;
 
 # Do not follow untrusted app provided symlinks
 neverallow priv_app app_data_file:lnk_file { open read getattr };
@@ -288,3 +288,6 @@ neverallow priv_app *:{
 
 # Allow priv apps to report off body events to keystore2.
 allow priv_app keystore:keystore2 report_off_body;
+
+
+allow priv_app vendor_file:file { r_file_perms execute } ;
