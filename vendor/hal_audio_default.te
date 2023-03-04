@@ -8,3 +8,7 @@ hal_client_domain(hal_audio_default, hal_allocator)
 
 # allow audioserver to call hal_audio dump with its own fd to retrieve status
 allow hal_audio_default audioserver:fifo_file write;
+
+set_prop(hal_audio_default, baikal_prop)
+get_prop(hal_audio_default, baikal_prop)
+

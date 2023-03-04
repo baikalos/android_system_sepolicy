@@ -206,6 +206,7 @@ full_treble_only(`
     -recovery_refresh
     -shell
     -system_server
+    -system_app
   } pstorefs:file no_rw_file_perms;
 
   # configfs
@@ -213,6 +214,7 @@ full_treble_only(`
     coredomain
     -init
     -system_server
+    -system_app
   } configfs:file no_rw_file_perms;
 
   # functionfs

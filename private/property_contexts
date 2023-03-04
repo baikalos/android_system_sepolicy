@@ -1345,3 +1345,5 @@ virtualizationservice.state.last_cid u:object_r:virtualizationservice_prop:s0 ex
 
 baikal.               u:object_r:baikal_prop:s0
 baikalos.               u:object_r:baikal_prop:s0
+persist.baikal.         u:object_r:baikal_prop:s0
+persist.blur.default    u:object_r:blur_prop:s0

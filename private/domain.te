@@ -72,10 +72,12 @@ allow domain vendor_task_profiles_file:file r_file_perms;
 get_prop(domain, use_memfd_prop);
 
 # Read access to sdkextensions props
-get_prop(domain, module_sdkextensions_prop)
+get_prop(domain, module_sdkextensions_prop);
 
 # Read access to bq configuration values
 get_prop(domain, bq_config_prop);
+
+get_prop(domain, baikal_prop);
 
 # For now, everyone can access core property files
 # Device specific properties are not granted by default

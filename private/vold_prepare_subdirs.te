@@ -11,10 +11,12 @@ allow vold_prepare_subdirs vold:fifo_file { read write };
 allow vold_prepare_subdirs file_contexts_file:file r_file_perms;
 allow vold_prepare_subdirs self:global_capability_class_set { chown dac_override dac_read_search fowner };
 allow vold_prepare_subdirs self:process setfscreate;
+
 allow vold_prepare_subdirs {
   sdk_sandbox_system_data_file
   system_data_file
   vendor_data_file
+  checkin_data_file
 }:dir { open read write add_name remove_name rmdir relabelfrom };
 allow vold_prepare_subdirs {
     apex_data_file_type
