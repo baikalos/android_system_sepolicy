@@ -67,6 +67,15 @@ set_prop(system_app, ctl_bugreport_prop)
 # Allow developer settings to query gsid status
 get_prop(system_app, gsid_prop)
 
+# Allow settings to query qemu.hw.mainkeys
+get_prop(system_app, qemu_hw_prop)
+
+# Allow systemapps to check incremental progress 
+get_prop(system_app, incremental_prop)
+
+# Camera
+get_prop(system_app, camera2_exported_camera_prop)
+
 # Create /data/anr/traces.txt.
 allow system_app anr_data_file:dir ra_dir_perms;
 allow system_app anr_data_file:file create_file_perms;
