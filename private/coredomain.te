@@ -136,6 +136,8 @@ full_treble_only(`
     coredomain
     -init
     -vold
+    -system_app
+    -system_server
   } proc:file no_rw_file_perms;
 
   # /sys
@@ -145,6 +147,8 @@ full_treble_only(`
     -init
     -ueventd
     -vold
+    -system_app
+    -system_server
   } sysfs:file no_rw_file_perms;
 
   # /dev
@@ -202,6 +206,7 @@ full_treble_only(`
     -recovery_refresh
     -shell
     -system_server
+    -system_app
   } pstorefs:file no_rw_file_perms;
 
   # configfs
@@ -209,6 +214,7 @@ full_treble_only(`
     coredomain
     -init
     -system_server
+    -system_app
   } configfs:file no_rw_file_perms;
 
   # functionfs

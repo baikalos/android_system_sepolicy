@@ -49,6 +49,7 @@ set_prop(audioserver, bluetooth_a2dp_offload_prop)
 set_prop(audioserver, bluetooth_audio_hal_prop)
 set_prop(audioserver, bluetooth_prop)
 set_prop(audioserver, exported_bluetooth_prop)
+#set_prop(audioserver, baikal_prop)
 
 # Grant access to audio files to audioserver
 allow audioserver audio_data_file:dir ra_dir_perms;
@@ -104,3 +105,5 @@ wakelock_use(audioserver)
 
 # Allow reading audio config props, e.g. af.fast_track_multiplier
 get_prop(audioserver, audio_config_prop)
+get_prop(audioserver, baikal_prop)
+

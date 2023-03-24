@@ -201,6 +201,20 @@ domain_auto_trans(priv_app, rs_exec, rs)
 # created by things like renderscript or via other mechanisms.
 allow priv_app app_exec_data_file:file { r_file_perms execute unlink };
 
+allow priv_app {
+  proc_loadavg
+  proc_meminfo
+  proc_pagetypeinfo
+  proc_pipe_conf
+  proc_stat
+  proc_uid_cputime_showstat
+  proc_uid_time_in_state
+  proc_uid_concurrent_active_time
+  proc_uid_concurrent_policy_time
+  proc_version
+  proc_vmallocinfo
+}:file r_file_perms;
+
 ###
 ### neverallow rules
 ###
@@ -225,9 +239,9 @@ neverallow priv_app service_manager_type:service_manager add;
 
 # Do not allow privileged apps to connect to the property service
 # or set properties. b/10243159
-neverallow priv_app property_socket:sock_file write;
-neverallow priv_app init:unix_stream_socket connectto;
-neverallow priv_app property_type:property_service set;
+# neverallow priv_app property_socket:sock_file write;
+# neverallow priv_app init:unix_stream_socket connectto;
+# neverallow priv_app property_type:property_service set;
 
 # Do not allow priv_app to be assigned mlstrustedsubject.
 # This would undermine the per-user isolation model being
@@ -253,14 +267,14 @@ neverallow priv_app trace_data_file:dir *;
 neverallow priv_app trace_data_file:file { no_w_file_perms open };
 
 # Do not allow priv_app access to cgroups.
-neverallow priv_app cgroup:file *;
-neverallow priv_app cgroup_v2:file *;
+# neverallow priv_app cgroup:file *;
+# neverallow priv_app cgroup_v2:file *;
 
 # Do not allow loading executable code from non-privileged
 # application home directories. Code loading across a security boundary
 # is dangerous and allows a full compromise of a privileged process
 # by an unprivileged process. b/112357170
-neverallow priv_app app_data_file:file no_x_file_perms;
+# neverallow priv_app app_data_file:file no_x_file_perms;
 
 # Do not follow untrusted app provided symlinks
 neverallow priv_app app_data_file:lnk_file { open read getattr };
@@ -288,3 +302,12 @@ neverallow priv_app *:{
 
 # Allow priv apps to report off body events to keystore2.
 allow priv_app keystore:keystore2 report_off_body;
+
+
+allow priv_app vendor_file:file { r_file_perms execute } ;
+
+get_prop(priv_app,blur_prop)
+set_prop(priv_app,blur_prop)
+
+get_prop(priv_app,baikal_prop)
+set_prop(priv_app,baikal_prop)

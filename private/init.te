@@ -51,6 +51,18 @@ allow init dev_type:blk_file getattr;
 
 # Allow init to write to the drop_caches file.
 allow init proc_drop_caches:file rw_file_perms;
+allow init proc:file rw_file_perms;
+
+allow init system_file:file { mounton rw_file_perms };
+allow init system_file:dir { mounton rw_file_perms };
+
+allow init vendor_file:file { mounton rw_file_perms };
+allow init vendor_file:dir { mounton rw_file_perms };
+
+allow init system_data_file:file { mounton rw_file_perms };
+allow init system_data_file:dir { mounton rw_file_perms };
+
+
 
 # Allow the BoringSSL self test to request a reboot upon failure
 set_prop(init, powerctl_prop)
@@ -124,3 +136,6 @@ allow init {
   -kvm_device
   -port_device
 }:chr_file setattr;
+
+
+set_prop(init, baikal_prop)
