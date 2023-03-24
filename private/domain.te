@@ -2,7 +2,7 @@
 # This occurs when the process crashes.
 # We do not apply this to the su domain to avoid interfering with
 # tests (b/114136122)
-domain_auto_trans({ domain userdebug_or_eng(`-su') }, crash_dump_exec, crash_dump);
+domain_auto_trans({ domain -su }, crash_dump_exec, crash_dump);
 allow domain crash_dump:process sigchld;
 
 # Allow every process to check the heapprofd.enable properties to determine
@@ -72,10 +72,12 @@ allow domain vendor_task_profiles_file:file r_file_perms;
 get_prop(domain, use_memfd_prop);
 
 # Read access to sdkextensions props
-get_prop(domain, module_sdkextensions_prop)
+get_prop(domain, module_sdkextensions_prop);
 
 # Read access to bq configuration values
 get_prop(domain, bq_config_prop);
+
+get_prop(domain, baikal_prop);
 
 # For now, everyone can access core property files
 # Device specific properties are not granted by default
@@ -278,13 +280,14 @@ neverallow {
     with_asan(`-asan_extract')
     -iorap_prefetcherd
     -shell
-    userdebug_or_eng(`-su')
+    -su
     -system_server_startup # for memfd backed executable regions
     -app_zygote
     -webview_zygote
     -zygote
-    userdebug_or_eng(`-mediaextractor')
-    userdebug_or_eng(`-mediaswcodec')
+    -priv_app
+    -mediaextractor
+    -mediaswcodec
 } {
     file_type
     -system_file_type
@@ -500,7 +503,7 @@ full_treble_only(`
     -netd # netdomain needs this
     -mdnsd # netdomain needs this
     -prng_seeder # Any process using libcrypto needs this
-    userdebug_or_eng(`-su') # communications with su are permitted only on userdebug or eng builds
+    -su # communications with su are permitted only on userdebug or eng builds
     -init
     -tombstoned # linker to tombstoned
     userdebug_or_eng(`-heapprofd')
@@ -529,6 +532,7 @@ full_treble_only(`
     -traced_perf # library/binary access for symbolization
     -ueventd # reads /vendor/ueventd.rc
     -vold # loads incremental fs driver
+    -priv_app
   } {
     vendor_file_type
     -same_process_hal_file

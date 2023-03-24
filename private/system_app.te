@@ -50,6 +50,9 @@ set_prop(system_app, net_radio_prop)
 set_prop(system_app, usb_control_prop)
 set_prop(system_app, usb_prop)
 set_prop(system_app, log_tag_prop)
+set_prop(system_app, default_prop)
+set_prop(system_app, baikal_prop)
+
 userdebug_or_eng(`set_prop(system_app, logpersistd_logging_prop)')
 auditallow system_app net_radio_prop:property_service set;
 auditallow system_app usb_control_prop:property_service set;
@@ -191,5 +194,7 @@ neverallow system_app fuse_device:chr_file *;
 neverallow system_app shell_data_file:dir { no_w_dir_perms open search read };
 neverallow system_app shell_data_file:file { open read ioctl lock };
 
-# system_app should be the only domain writing the adaptive haptics prop
-neverallow { domain -init -system_app } adaptive_haptics_prop:property_service set;
+allow system_app pstorefs:dir r_dir_perms;
+allow system_app pstorefs:file r_file_perms;
+allow system_app kernel:system syslog_read;
+

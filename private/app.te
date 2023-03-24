@@ -52,6 +52,8 @@ get_prop(appdomain, persist_wm_debug_prop)
 get_prop(appdomain, device_config_runtime_native_prop)
 get_prop(appdomain, device_config_runtime_native_boot_prop)
 
+get_prop(appdomain,blur_prop)
+
 userdebug_or_eng(`perfetto_producer({ appdomain })')
 
 # Prevent apps from causing presubmit failures.

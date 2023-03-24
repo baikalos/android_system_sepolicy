@@ -276,6 +276,9 @@ set_prop(vendor_init, dck_prop)
 get_prop(vendor_init, device_config_vendor_system_native_prop)
 get_prop(vendor_init, device_config_vendor_system_native_boot_prop)
 
+get_prop(vendor_init, audio_prop)
+set_prop(vendor_init, audio_prop)
+
 ###
 ### neverallow rules
 ###
