@@ -311,3 +311,6 @@ set_prop(priv_app,blur_prop)
 
 get_prop(priv_app,baikal_prop)
 set_prop(priv_app,baikal_prop)
+
+get_prop(priv_app,default_prop)
+set_prop(priv_app,default_prop)
