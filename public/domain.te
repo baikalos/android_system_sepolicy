@@ -974,6 +974,8 @@ full_treble_only(`
       -system_executes_vendor_violators
       -ueventd
       -priv_app
+      -mediaserver
+      -cameraserver
     } {
       vendor_file_type
       -same_process_hal_file

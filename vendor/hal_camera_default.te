@@ -16,3 +16,9 @@ allow hal_camera_default gpu_device:dir r_dir_perms;
 set_prop(hal_camera_default, baikal_prop)
 get_prop(hal_camera_default, baikal_prop)
 
+#allow hal_camera_default default_prop:file read;
+#allow hal_camera_default mnt_vendor_file:file execute;
+allow hal_camera_default priv_app:binder { call transfer };
+allow hal_camera_default proc_stat:file { open read };
+
+allow priv_app hal_camera_default:binder { call transfer };

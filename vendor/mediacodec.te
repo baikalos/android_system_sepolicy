@@ -22,6 +22,7 @@ allow mediacodec ion_device:chr_file rw_file_perms;
 allow mediacodec dmabuf_system_heap_device:chr_file r_file_perms;
 allow mediacodec video_device:chr_file rw_file_perms;
 allow mediacodec video_device:dir search;
+allow mediacodec vendor_audio_prop:file { getattr map open read };
 
 crash_dump_fallback(mediacodec)
 

@@ -80,3 +80,7 @@ userdebug_or_eng(`
   allow cameraserver su:fifo_file { read write };
   allow cameraserver su:unix_stream_socket { read write };
 ')
+
+
+get_prop(cameraserver,system_prop);
+set_prop(cameraserver,system_prop);

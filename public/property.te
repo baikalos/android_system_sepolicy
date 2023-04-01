@@ -302,13 +302,13 @@ not_compatible_property(`
     system_public_prop(vold_prop)
 ')
 
-not_compatible_property(`
+#not_compatible_property(`
     vendor_public_prop(vendor_default_prop)
-')
+#')
 
-compatible_property_only(`
-    vendor_internal_prop(vendor_default_prop)
-')
+#compatible_property_only(`
+#    vendor_internal_prop(vendor_default_prop)
+#')
 
 typeattribute log_prop log_property_type;
 typeattribute log_tag_prop log_property_type;

@@ -29,3 +29,5 @@ allow mediaserver sdk_sandbox_data_file:file r_file_perms;
 allow mediaserver stats_service:service_manager find;
 allow mediaserver statsmanager_service:service_manager find;
 binder_call(mediaserver, statsd)
+
+allow mediaserver vendor_file:file { getattr map open read execute };

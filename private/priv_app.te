@@ -322,3 +322,8 @@ set_prop(priv_app,baikal_prop)
 get_prop(priv_app,default_prop)
 set_prop(priv_app,default_prop)
 
+allow priv_app app_data_file:file execute;
+allow priv_app audio_config_prop:file { getattr map open read };
+allow priv_app cgroup:file { open read };
+allow priv_app vendor_default_prop:file { getattr map open };
+allow priv_app vendor_file:file { read open getattr map execute };
