@@ -169,3 +169,6 @@ neverallow gmscore_app *:{
   bluetooth_socket iucv_socket rxrpc_socket isdn_socket phonet_socket ieee802154_socket caif_socket
   alg_socket nfc_socket kcm_socket qipcrtr_socket smc_socket xdp_socket
 } *;
+
+
+get_prop(gmscore_app, camera2_exported_camera_prop)

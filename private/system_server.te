@@ -1073,8 +1073,10 @@ allow system_server adbd:unix_stream_socket { getattr getopt ioctl read write sh
 
 # Read service.adb.tls.port, persist.adb.wifi. properties
 get_prop(system_server, adbd_prop)
+set_prop(system_server, adbd_prop)
 
 # Set persist.adb.tls_server.enable property
+get_prop(system_server, system_adbd_prop)
 set_prop(system_server, system_adbd_prop)
 
 # Set tethering properties

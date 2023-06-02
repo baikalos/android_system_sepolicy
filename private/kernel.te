@@ -48,3 +48,5 @@ dontaudit kernel {
   sepolicy_test_file
   service_contexts_file
 }:file relabelto;
+
+allow kernel kernel:capability { kill };
