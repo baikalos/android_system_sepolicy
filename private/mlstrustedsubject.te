@@ -30,4 +30,5 @@ neverallow {
   -adbd
   -runas
   -zygote
+  -dexoptanalyzer
 } { app_data_file privapp_data_file }:dir { read getattr search };
