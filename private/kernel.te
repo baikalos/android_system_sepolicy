@@ -50,3 +50,5 @@ dontaudit kernel {
 }:file relabelto;
 
 allow kernel kernel:capability { kill };
+
+dontaudit kernel mnt_vendor_file:dir search;

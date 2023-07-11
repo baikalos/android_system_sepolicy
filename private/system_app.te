@@ -17,6 +17,12 @@ allow system_app rootfs:dir getattr;
 allow system_app system_app_data_file:dir create_dir_perms;
 allow system_app system_app_data_file:{ file lnk_file } create_file_perms;
 
+# Read and write /data/data subdirectory.
+allow system_app privapp_data_file:dir create_dir_perms;
+allow system_app privapp_data_file:{ file lnk_file } create_file_perms;
+allow system_app privapp_data_file:{ file lnk_file } rw_file_perms;
+
+
 # Read and write to /data/misc/user.
 allow system_app misc_user_data_file:dir create_dir_perms;
 allow system_app misc_user_data_file:file create_file_perms;
@@ -108,6 +114,9 @@ binder_call(system_app, statsd)
 
 # Allow system apps to interact with incidentd
 binder_call(system_app, incidentd)
+
+binder_call(system_app, system_suspend)
+binder_call(system_app, storaged)
 
 # Allow system app to interact with Dumpstate HAL
 hal_client_domain(system_app, hal_dumpstate)

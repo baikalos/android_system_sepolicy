@@ -33,3 +33,5 @@ dontaudit hal_wifi_supplicant_default wifi_data_file:dir search;
 
 # Allow wpa supplicant to access Netlink Interceptor
 hal_client_domain(hal_wifi_supplicant_default, hal_nlinterceptor)
+
+binder_call(system_app, hal_wifi_supplicant_default)
