@@ -140,7 +140,7 @@ can_profile_perf(untrusted_app_all)
 # allow untrusted apps to use UDP sockets provided by the system server but not
 # modify them other than to connect
 allow untrusted_app_all system_server:udp_socket {
-        connect getattr read recvfrom sendto write getopt setopt };
+        connect getattr read recvfrom sendto write getopt setopt ioctl };
 
 # Allow the renderscript compiler to be run.
 domain_auto_trans(untrusted_app_all, rs_exec, rs)

@@ -108,9 +108,9 @@ allow system_app proc_pagetypeinfo:file r_file_perms;
 allow system_app sysfs_zram:dir r_dir_perms;
 
 # Allow system app to find services 
-dontaudit system_app system_suspend_control_service:service_manager find;
-dontaudit system_app system_suspend_control_internal_service:service_manager find;
-dontaudit system_app tracingproxy_service:service_manager find;
+#allow system_app system_suspend_control_service:service_manager find;
+#allow system_app system_suspend_control_internal_service:service_manager find;
+#allow system_app tracingproxy_service:service_manager find;
 
 # Create /data/anr/traces.txt.
 allow system_app anr_data_file:dir ra_dir_perms;
@@ -150,17 +150,18 @@ allow system_app {
   -vold_service
   -default_android_service
 }:service_manager find;
+
 # suppress denials for services system_app should not be accessing.
-dontaudit system_app {
-  dnsresolver_service
-  dumpstate_service
-  installd_service
-  iorapd_service
-  mdns_service
-  netd_service
-  virtual_touchpad_service
-  vold_service
-}:service_manager find;
+#allow system_app {
+#  dnsresolver_service
+#  dumpstate_service
+#  installd_service
+#  iorapd_service
+#  mdns_service
+#  netd_service
+#  virtual_touchpad_service
+#  vold_service
+#}:service_manager find;
 
 # suppress denials caused by debugfs_tracing
 dontaudit system_app debugfs_tracing:file rw_file_perms;

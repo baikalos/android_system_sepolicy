@@ -17,7 +17,7 @@ allow netd self:global_capability_class_set { net_admin net_raw kill };
 # the setgid bit should be cleared, regardless of whether the setgid
 # bit was even set.  We do not appear to truly need this capability
 # for netd to operate.
-dontaudit netd self:global_capability_class_set fsetid;
+# dontaudit netd self:global_capability_class_set fsetid;
 
 # Allow netd to open /dev/tun, set it up and pass it to clatd
 allow netd tun_device:chr_file rw_file_perms;
@@ -39,7 +39,7 @@ allow netd devpts:chr_file rw_file_perms;
 # Acquire advisory lock on /system/etc/xtables.lock. If this file doesn't
 # exist, suppress the denial.
 allow netd system_file:file lock;
-dontaudit netd system_file:dir write;
+# dontaudit netd system_file:dir write;
 
 # Allow netd to write to qtaguid ctrl file.
 # TODO: Add proper rules to prevent other process to access qtaguid_proc file
@@ -166,19 +166,19 @@ neverallow netd { appdomain -network_stack userdebug_or_eng(`-su') }:binder call
 # a false report of a create denial. Silence these denials and make sure that
 # inappropriate permissions are not granted.
 neverallow netd proc_net:dir no_w_dir_perms;
-dontaudit netd proc_net:dir write;
+# dontaudit netd proc_net:dir write;
 
 neverallow netd sysfs_net:dir no_w_dir_perms;
-dontaudit netd sysfs_net:dir write;
+# dontaudit netd sysfs_net:dir write;
 
 # Netd should not have SYS_ADMIN privs.
 neverallow netd self:capability sys_admin;
-dontaudit netd self:capability sys_admin;
+# dontaudit netd self:capability sys_admin;
 
 # Netd should not have SYS_MODULE privs, nor should it be requesting module loads
 # (things it requires should be built directly into the kernel)
-dontaudit netd self:capability sys_module;
+# dontaudit netd self:capability sys_module;
 
-dontaudit netd kernel:system module_request;
+# dontaudit netd kernel:system module_request;
 
-dontaudit netd appdomain:unix_stream_socket { read write };
+# dontaudit netd appdomain:unix_stream_socket { read write };

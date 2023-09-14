@@ -47,7 +47,7 @@ binder_call(network_stack, netd);
 allow network_stack self:key_socket create;
 # Java's Os.close() in libcore/luni/src/main/java/libcore/io/BlockGuardOs.java;l=100
 # calls if (fd.isSocket$()) if (isLingerSocket(fd)) ...
-dontaudit network_stack self:key_socket getopt;
+# dontaudit network_stack self:key_socket getopt;
 
 # Grant read permission of connectivity namespace system property prefix.
 get_prop(network_stack, device_config_connectivity_prop)

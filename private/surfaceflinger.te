@@ -139,7 +139,7 @@ userdebug_or_eng(`
 ')
 
 # Surfaceflinger should not be reading default vendor-defined properties.
-dontaudit surfaceflinger vendor_default_prop:file read;
+# dontaudit surfaceflinger vendor_default_prop:file read;
 
 ###
 ### Neverallow rules

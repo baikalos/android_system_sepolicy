@@ -51,5 +51,5 @@ allow property_type tmpfs:filesystem associate;
 neverallow { domain -init } default_prop:file no_rw_file_perms;
 neverallow { domain -init } default_prop:property_service set;
 
-dontaudit { domain -init } default_prop:file no_rw_file_perms;
-dontaudit { domain -init } default_prop:property_service set;
+# dontaudit { domain -init } default_prop:file no_rw_file_perms;
+# dontaudit { domain -init } default_prop:property_service set;

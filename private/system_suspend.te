@@ -19,6 +19,10 @@ r_dir_file(system_suspend, sysfs_wakeup_reasons)
 # To resolve arbitrary sysfs paths from /sys/class/wakeup/* symlinks.
 allow system_suspend sysfs_type:dir search;
 
+allow system_suspend sysfs:dir search;
+allow system_suspend sysfs:dir rw_file_perms;
+allow system_suspend sysfs:file rw_file_perms;
+
 # Access to suspend_hal system properties
 get_prop(system_suspend, suspend_prop)
 

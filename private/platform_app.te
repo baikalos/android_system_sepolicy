@@ -53,7 +53,7 @@ allow platform_app app_api_service:service_manager find;
 allow platform_app fwk_stats_hwservice:hwservice_manager find;
 allow platform_app color_display_service:service_manager find;
 
-dontaudit platform_app vendor_hwservice_type:hwservice_manager find;
+# dontaudit platform_app vendor_hwservice_type:hwservice_manager find;
 
 # audit2allow
 allow platform_app config_gz:file open;
@@ -180,7 +180,7 @@ get_prop(platform_app, camera2_exported_camera_prop);
 allow platform_app app_data_file:lnk_file create_file_perms;
 
 # suppress denials caused by debugfs_tracing
-dontaudit platform_app debugfs_tracing:file rw_file_perms;
+# dontaudit platform_app debugfs_tracing:file rw_file_perms;
 
 # Allow platform apps to act as Perfetto producers.
 perfetto_producer(platform_app)
