@@ -850,3 +850,8 @@
 /(system|product)/bin/check_dynamic_partitions  u:object_r:postinstall_exec:s0
 /(system|product)/bin/otapreopt_script          u:object_r:postinstall_exec:s0
 /(system|product)/bin/otapreopt                 u:object_r:postinstall_dexopt_exec:s0
+
+# OTA packages
+/data/baikalos_updates(/.*)?             u:object_r:ota_package_file:s0
+
+
