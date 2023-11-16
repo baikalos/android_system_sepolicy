@@ -108,3 +108,6 @@ allow dex2oat apexd:fd use;
 ##############
 
 neverallow dex2oat { privapp_data_file app_data_file }:notdevfile_class_set open;
+
+allow priv_app proc_filesystems:file r_file_perms;
+allow priv_app vendor_overlay_file:file r_file_perms;
