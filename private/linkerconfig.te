@@ -24,4 +24,7 @@ allow linkerconfig otapreopt_chroot:fd use;
 allow linkerconfig postinstall_apex_mnt_dir:dir r_dir_perms;
 allow linkerconfig postinstall_apex_mnt_dir:file r_file_perms;
 
+allow linkerconfig self:capability { kill };
+
+
 neverallow { domain -init -linkerconfig -otapreopt_chroot } linkerconfig_exec:file no_x_file_perms;
