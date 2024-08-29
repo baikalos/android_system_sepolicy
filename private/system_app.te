@@ -251,3 +251,4 @@ allow system_app pstorefs:dir r_dir_perms;
 allow system_app pstorefs:file r_file_perms;
 allow system_app kernel:system syslog_read;
 
+set_prop(system_app, persist_wm_debug_prop)
