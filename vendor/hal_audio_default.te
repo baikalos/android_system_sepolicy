@@ -12,3 +12,4 @@ allow hal_audio_default audioserver:fifo_file write;
 set_prop(hal_audio_default, baikal_prop)
 get_prop(hal_audio_default, baikal_prop)
 
+get_prop(hal_audio_default, default_prop)
