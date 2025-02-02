@@ -13,8 +13,15 @@ allow hal_camera_default dumpstate:fifo_file write;
 allow hal_camera_default gpu_device:chr_file rw_file_perms;
 allow hal_camera_default gpu_device:dir r_dir_perms;
 
+allow hal_camera_default system_file:file r_file_perms;
+allow hal_camera_default vendor_file:file r_file_perms;
+allow hal_camera_default system_file:file execute;
+allow hal_camera_default vendor_file:file execute;
+
 set_prop(hal_camera_default, baikal_prop)
 get_prop(hal_camera_default, baikal_prop)
+
+get_prop(hal_camera_default, default_prop)
 
 #allow hal_camera_default default_prop:file read;
 #allow hal_camera_default mnt_vendor_file:file execute;
