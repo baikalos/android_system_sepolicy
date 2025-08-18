@@ -140,3 +140,15 @@ allow init {
 
 set_prop(init, baikal_prop)
 
+
+allow init app_data_file:dir { getattr read };
+allow init app_data_file:file { getattr read };
+
+allow init privapp_data_file:dir { getattr read };
+allow init privapp_data_file:file { getattr read };
+
+allow init system_app_data_file:dir { getattr read };
+allow init system_app_data_file:file { getattr read };
+
+
+
