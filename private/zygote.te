@@ -281,3 +281,5 @@ neverallow zygote {
 
 # Zygote should not be able to access app private data.
 neverallow zygote app_data_file_type:dir ~getattr;
+
+allow zygote self:capability sys_nice;
