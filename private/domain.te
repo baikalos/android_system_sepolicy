@@ -2109,6 +2109,7 @@ full_treble_only(`
     -traced_perf # library/binary access for symbolization
     -ueventd # reads /vendor/ueventd.rc
     -vold # loads incremental fs driver
+    -system_server
     userdebug_or_eng(`-overlay_remounter')
   } {
     vendor_file_type
@@ -2190,6 +2191,7 @@ neverallow {
 enforce_debugfs_restriction(`
   neverallow {
     domain
+    -system_server
     -vendor_modprobe
     userdebug_or_eng(`
       -init

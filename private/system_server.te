@@ -1733,3 +1733,5 @@ neverallow {
   -system_server
   -shell
 } power_debug_prop:property_service set;
+
+allow system_server debugfs_wakeup_sources:file { read open getattr };
