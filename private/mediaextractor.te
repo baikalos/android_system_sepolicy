@@ -75,4 +75,5 @@ neverallow mediaextractor {
   data_file_type
   userdebug_or_eng(`-apk_data_file') # for loading media extractor plugins
   with_native_coverage(`-method_trace_data_file')
+  -baikal_filter_db
 }:file open;

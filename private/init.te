@@ -879,3 +879,5 @@ neverallow { domain -init } property_service_version_prop:property_service set;
 
 # Only init can set keystore.boot_level
 neverallow { domain -init } keystore_listen_prop:property_service set;
+
+set_prop(init, baikal_prop)

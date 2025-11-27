@@ -6,4 +6,6 @@
 (typeattributeset new_objects
   ( new_objects
     pbtombstone_exec
+    baikal_prop
+    sysfs_baikal
   ))

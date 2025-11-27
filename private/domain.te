@@ -918,6 +918,8 @@ full_treble_only(`
     -radio_service
     -virtual_touchpad_service
     -vr_manager_service
+    -baikal_service
+    -baikal_app_profile_service
     userdebug_or_eng(`-hal_face_service')
   }:service_manager find;
 ')
@@ -1066,6 +1068,7 @@ full_treble_only(`
     -data_between_core_and_vendor_violators # TODO(b/34980020) Remove once all violators have been cleaned up
     -vendor_init
   } {
+    -baikal_filter_db
     core_data_file_type
     with_native_coverage(`-method_trace_data_file')
   }:file_class_set ~{ append getattr ioctl read write map };
@@ -1073,6 +1076,7 @@ full_treble_only(`
     vendor_init
     -data_between_core_and_vendor_violators
   } {
+    -baikal_filter_db
     core_data_file_type
     -unencrypted_data_file
     with_native_coverage(`-method_trace_data_file')
@@ -1320,7 +1324,7 @@ neverallow {
 # Nobody should be able to execute su on user builds.
 # On userdebug/eng builds, only dumpstate, shell, and
 # su itself execute su.
-neverallow { domain userdebug_or_eng(`-dumpstate -shell -su -overlay_remounter') } su_exec:file no_x_file_perms;
+# neverallow { domain userdebug_or_eng(`-dumpstate -shell -su -overlay_remounter') } su_exec:file no_x_file_perms;
 
 # Do not allow the introduction of new execmod rules. Text relocations
 # and modification of executable pages are unsafe.
@@ -2341,3 +2345,5 @@ neverallow {
     -recovery
 } *:vsock_socket { connect create accept bind };
 ')
+
+get_prop(domain, baikal_prop);

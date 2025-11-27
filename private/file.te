@@ -272,4 +272,7 @@ until_board_api(202504, `
     type sysfs_mem_sleep, fs_type, sysfs_type;
 ')
 
+
+type baikal_filter_db, file_type, data_file_type, core_data_file_type;
+
 ## END Types added in 202504 in public/file.te
