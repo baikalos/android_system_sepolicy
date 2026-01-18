@@ -9,4 +9,6 @@ neverallow {
     -system_server # configures system_suspend via ISuspendControlServiceInternal
     -traced_probes # tracing
     -traceur_app # tracing
+    -system_app
+    -system_server
 } system_suspend_control_internal_service:service_manager find;

@@ -45,4 +45,6 @@
     wifi_usd_service
     early_virtmgr_vendor
     virtualizationmanager_vendor
+    baikal_prop
+    sysfs_baikal
   ))
