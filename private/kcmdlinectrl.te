@@ -20,3 +20,5 @@ read_fstab(kcmdlinectrl)
 # so we can just ignore the SELinux denial.
 dontaudit kcmdlinectrl sysfs_dt_firmware_android:dir search;
 dontaudit kcmdlinectrl vendor_property_type:file read;
+
+allow kcmdlinectrl self:capability { dac_override dac_read_search };

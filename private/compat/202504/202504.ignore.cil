@@ -30,4 +30,7 @@
     wallet_prop
     anomaly_detector_service
     uprobestats_service
+    baikal_prop
+    sysfs_baikal
   ))
+

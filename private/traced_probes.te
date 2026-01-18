@@ -186,6 +186,7 @@ neverallow traced_probes {
   -packages_list_file
   with_native_coverage(`-method_trace_data_file')
   -game_mode_intervention_list_file
+  -baikal_filter_db
 }:file *;
 
 # Only init is allowed to enter the traced_probes domain via exec()

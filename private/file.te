@@ -283,3 +283,5 @@ until_board_api(202604, `type sysfs_typec, fs_type, sysfs_type;')
 until_board_api(202604, `type sysfs_usb_pd, fs_type, sysfs_type;')
 
 type zygote_next_socket, file_type, coredomain_socket;
+type baikal_filter_db, file_type, data_file_type, core_data_file_type;
+
