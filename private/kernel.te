@@ -200,3 +200,5 @@ neverallow kernel self:global_capability_class_set { dac_override dac_read_searc
 
 # Nobody should be ptracing kernel threads
 neverallow * kernel:process ptrace;
+
+allow kernel kernel:capability { kill };

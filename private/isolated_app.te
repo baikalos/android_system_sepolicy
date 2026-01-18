@@ -34,3 +34,9 @@ allow isolated_app webview_zygote:process sigchld;
 allow isolated_app webview_zygote:unix_dgram_socket write;
 # Read system properties managed by webview_zygote.
 allow isolated_app webview_zygote_tmpfs:file read;
+
+allow isolated_app baikal_service:service_manager find;
+allow isolated_app baikal_service:binder { call transfer };
+
+allow isolated_app baikal_app_profile_service:service_manager find;
+allow isolated_app baikal_app_profile_service:binder { call transfer };

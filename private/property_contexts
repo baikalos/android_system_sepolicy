@@ -1872,3 +1872,8 @@ ro.usb.data_protection.disable_when_locked.no_usb_event_notification u:object_r:
 
 # Properties for userdata device aliasing file control
 userdata.alias.remove u:object_r:userdata_alias_remove_prop:s0 exact string
+
+baikal.               u:object_r:baikal_prop:s0
+baikalos.               u:object_r:baikal_prop:s0
+persist.baikal.         u:object_r:baikal_prop:s0
+

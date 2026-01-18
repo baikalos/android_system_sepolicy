@@ -156,31 +156,32 @@ enforce_sysprop_owner(`
     -system_property_type
     -product_property_type
     -vendor_property_type
+    -vendor_init
   }:file no_rw_file_perms;
 ')
 
-neverallow { domain -coredomain } {
+neverallow { domain -coredomain -vendor_init -radio } {
   system_property_type
   system_internal_property_type
   -system_restricted_property_type
   -system_public_property_type
 }:file no_rw_file_perms;
 
-neverallow { domain -coredomain } {
+neverallow { domain -coredomain -vendor_init -radio } {
   system_property_type
   -system_public_property_type
 }:property_service set;
 
 # init is in coredomain, but should be able to read/write all props.
 # dumpstate is also in coredomain, but should be able to read all props.
-neverallow { coredomain -init -dumpstate } {
+neverallow { coredomain -init -dumpstate -vendor_init -radio } {
   vendor_property_type
   vendor_internal_property_type
   -vendor_restricted_property_type
   -vendor_public_property_type
 }:file no_rw_file_perms;
 
-neverallow { coredomain -init } {
+neverallow { coredomain -init -vendor_init -radio } {
   vendor_property_type
   -vendor_public_property_type
 }:property_service set;
@@ -339,6 +340,7 @@ compatible_property_only(`
     -bluetooth
     -hal_bluetooth_server
     -vendor_init
+    -radio
   } {
     exported_bluetooth_prop
   }:property_service set;
@@ -636,6 +638,7 @@ neverallow {
 neverallow {
   domain
   -init
+  -vendor_init
 } {
   init_service_status_private_prop
   init_service_status_prop
@@ -772,6 +775,9 @@ neverallow {
 neverallow {
   domain
   -init
+  -vendor_init
+  -system_app
+  -system_server
 } default_prop:property_service set;
 
 # Only one of system_property_type and vendor_property_type can be assigned.

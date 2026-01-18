@@ -12,4 +12,6 @@
     prefetch
     usb_disable_when_locked_prop
     virtualizationservice_data_file
+    baikal_prop
+    sysfs_baikal
   ))
