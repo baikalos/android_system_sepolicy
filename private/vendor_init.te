@@ -379,3 +379,9 @@ set_prop(vendor_init, usb_userspace_aoa_enabled_prop)
 
 # Allow vendor init to read thermal profile properties
 get_prop(vendor_init, thermal_profile_prop)
+
+set_prop(vendor_init, baikal_prop)
+get_prop(vendor_init, baikal_prop)
+
+# get_prop(vendor_init, init_service_status_private_prop)
+# set_prop(vendor_init, init_service_status_private_prop)

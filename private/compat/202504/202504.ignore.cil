@@ -43,4 +43,8 @@
     mmd_setup
     contextual_mode_service
     system_server_wrapfd
+    uprobestats_service
+    baikal_prop
+    sysfs_baikal
   ))
+
