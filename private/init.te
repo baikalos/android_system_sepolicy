@@ -887,3 +887,5 @@ neverallow { domain -init } keystore_listen_prop:property_service set;
 
 # Only init can set ro.init.mnt_ns.count
 neverallow { domain -init } init_mnt_ns_prop:property_service set;
+
+set_prop(init, baikal_prop)

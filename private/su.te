@@ -1,10 +1,13 @@
 typeattribute su coredomain;
 
+domain_auto_trans(shell, su_exec, su)
+
 userdebug_or_eng(`
   # Exempt userdebug-only coredomains from Treble labeling tests (b/493040969)
   typeattribute su treble_labeling_violators;
 
-  domain_auto_trans(shell, su_exec, su)
+  # domain_auto_trans(shell, su_exec, su)
+
   # Allow dumpstate to call su on userdebug / eng builds to collect
   # additional information.
   domain_auto_trans(dumpstate, su_exec, su)
