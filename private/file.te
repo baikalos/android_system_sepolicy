@@ -290,3 +290,6 @@ type uid_allowlist_policy, file_type;
 
 # /sys/module/binder/parameters/impl
 type sysfs_binder_impl, fs_type, sysfs_type;
+
+type baikal_filter_db, file_type, data_file_type, core_data_file_type;
+

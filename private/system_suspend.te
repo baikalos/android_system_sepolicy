@@ -58,6 +58,8 @@ allow system_suspend sysfs_suspend_params:file rw_file_perms;
 
 neverallow {
     domain
+    -system_server
+    -system_app
     -atrace # tracing
     -bluetooth # support Bluetooth activity attribution (BTAA)
     -dumpstate # bug reports

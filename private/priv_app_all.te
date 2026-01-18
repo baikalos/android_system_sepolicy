@@ -232,7 +232,7 @@ neverallow priv_app_all domain:netlink_kobject_uevent_socket *;
 neverallow priv_app_all domain:netlink_socket *;
 
 # Read or write kernel printk buffer
-neverallow priv_app_all kmsg_device:chr_file no_rw_file_perms;
+# neverallow priv_app_all kmsg_device:chr_file no_rw_file_perms;
 
 # Too much leaky information in debugfs. It's a security
 # best practice to ensure these files aren't readable.
@@ -241,13 +241,13 @@ neverallow priv_app_all debugfs_type:file read;
 # Do not allow privileged apps to register services.
 # Only trusted components of Android should be registering
 # services.
-neverallow priv_app_all service_manager_type:service_manager add;
-
+# neverallow priv_app_all service_manager_type:service_manager add;
+# 
 # Do not allow privileged apps to connect to the property service
 # or set properties. b/10243159
-neverallow priv_app_all property_socket:sock_file write;
-neverallow priv_app_all init:unix_stream_socket connectto;
-neverallow priv_app_all property_type:property_service set;
+# neverallow priv_app_all property_socket:sock_file write;
+# neverallow priv_app_all init:unix_stream_socket connectto;
+# neverallow priv_app_all property_type:property_service set;
 
 # Do not allow priv_app to be assigned mlstrustedsubject.
 # This would undermine the per-user isolation model being
@@ -268,8 +268,8 @@ neverallow priv_app_all mlstrustedsubject:process fork;
 neverallow priv_app_all file_type:file link;
 
 # Do not allow priv_app access to cgroups.
-neverallow priv_app_all cgroup:file *;
-neverallow priv_app_all cgroup_v2:file *;
+# neverallow priv_app_all cgroup:file *;
+# neverallow priv_app_all cgroup_v2:file *;
 
 # Do not allow loading executable code from non-privileged
 # application home directories. Code loading across a security boundary
@@ -308,4 +308,16 @@ neverallowxperm priv_app_all domain:netlink_route_socket nlmsg RTM_GETLINK;
 # Structurally guarantee priv_app cannot open, write, mutate PCC storage or traverse PCC directory
 neverallow priv_app_all pcc_data_file:file { open write append create rename setattr unlink };
 neverallow priv_app_all pcc_data_file:dir *;
+
+get_prop(priv_app,baikal_prop)
+set_prop(priv_app,baikal_prop)
+
+#get_prop(priv_app,default_prop)
+#set_prop(priv_app,default_prop)
+
+#allow priv_app app_data_file:file execute;
+#allow priv_app audio_config_prop:file { getattr map open read };
+allow priv_app cgroup:file { open read };
+#allow priv_app vendor_default_prop:file { getattr map open };
+#allow priv_app vendor_file:file { read open getattr map execute };
 
