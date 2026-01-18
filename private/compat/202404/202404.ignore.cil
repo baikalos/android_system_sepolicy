@@ -41,4 +41,6 @@
     virtualizationmanager_exec
     wifi_mainline_supplicant_service
     wifi_usd_service
+    baikal_prop
+    sysfs_baikal
   ))

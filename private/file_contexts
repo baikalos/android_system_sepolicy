@@ -321,7 +321,9 @@
 /system/bin/dhcpcd      u:object_r:dhcp_exec:s0
 /system/bin/dhcpcd-6\.8\.2	u:object_r:dhcp_exec:s0
 /system/bin/dmesgd	u:object_r:dmesgd_exec:s0
-/system/xbin/su		u:object_r:su_exec:s0
+/system/xbin/su		u:object_r:system_file:s0
+/system/baikalos/bin/su		u:object_r:system_file:s0
+/system/xbin/baikal_su		u:object_r:su_exec:s0
 /system/bin/dnsmasq     u:object_r:dnsmasq_exec:s0
 /system/bin/linker(64)? u:object_r:system_linker_exec:s0
 /system/bin/linkerconfig u:object_r:linkerconfig_exec:s0
@@ -970,3 +972,7 @@
 #############################
 # For overlays
 /second_stage_resources/overlay_remounter u:object_r:overlay_remounter_exec:s0
+
+/data/baikalos_updates(/.*)?             u:object_r:ota_package_file:s0
+
+/data/system/uid_filter\.db  u:object_r:baikal_filter_db:s0
