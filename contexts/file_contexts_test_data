@@ -392,6 +392,7 @@
 /system/bin/dhcpcd-6.8.2                                          dhcp_exec
 /system/bin/dmesgd                                                dmesgd_exec
 /system/xbin/su                                                   su_exec
+/system/xbin/baikal_su                                            su_exec
 /system/bin/dnsmasq                                               dnsmasq_exec
 /system/bin/linker                                                system_linker_exec
 /system/bin/linker64                                              system_linker_exec
@@ -1365,3 +1366,7 @@
 /mnt/pre_reboot_dexopt                                            pre_reboot_dexopt_file
 
 /second_stage_resources/overlay_remounter                         overlay_remounter_exec
+
+/data/baikalos_updates                                            ota_package_file
+/data/baikalos_updates/test                                       ota_package_file
+/data/system/uid_filter.db                                        baikal_filter_db

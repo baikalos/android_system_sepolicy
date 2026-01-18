@@ -1176,13 +1176,15 @@ allow system_server mnt_expand_file:dir r_dir_perms;
 allow system_server fingerprintd_data_file:dir { r_dir_perms remove_name rmdir relabelto write };
 allow system_server fingerprintd_data_file:file { getattr unlink };
 
+allow system_server kernel:system syslog_read;
+
 userdebug_or_eng(`
   # Allow system server to create and write method traces in /data/misc/trace.
   allow system_server method_trace_data_file:dir w_dir_perms;
   allow system_server method_trace_data_file:file { create w_file_perms };
 
   # Allow system server to read dmesg
-  allow system_server kernel:system syslog_read;
+  # allow system_server kernel:system syslog_read;
 
   # Allow writing and removing window traces in /data/misc/wmtrace.
   allow system_server wm_trace_data_file:dir rw_dir_perms;
@@ -1461,6 +1463,7 @@ neverallow {
 neverallow {
   domain
   -init
+  -vendor_init
   -system_server
   -flags_health_check
 } {
@@ -1821,3 +1824,25 @@ neverallow system_server self:global_capability_class_set sys_module;
 neverallow { domain -system_server -init } appsearch_data_file:file { open read write };
 
 neverallow system_server *:process ptrace;
+
+allow system_server debugfs_wakeup_sources:file { read open getattr };
+
+allow system_server baikal_app_profile_service:service_manager add;
+allow system_server baikal_app_profile_service:service_manager find;
+
+allow system_server baikal_service:service_manager add;
+allow system_server baikal_service:service_manager find;
+
+set_prop(system_server, baikal_prop)
+allow system_server sysfs_baikal:file { getattr rw_file_perms };
+
+allow system_server baikal_filter_db:file create_file_perms;
+allow system_server system_data_file:dir add_name;
+
+
+# English comment: Only files named "uid_filter.db.tmp" created by system_server 
+# in system_data_file directories will get the baikal_filter_db label.
+type_transition system_server system_data_file:file baikal_filter_db "uid_filter.db.tmp";
+
+# English comment: Also allow the rename operation
+allow system_server baikal_filter_db:file { create_file_perms rename setattr };

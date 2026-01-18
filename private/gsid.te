@@ -206,3 +206,5 @@ neverallow {
     domain
     -gsid
 } gsi_data_file:file_class_set ~{ relabelto getattr };
+
+allow gsid self:capability { dac_override dac_read_search };
