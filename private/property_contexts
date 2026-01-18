@@ -1903,3 +1903,7 @@ ro.arm64.memtag.bootctl_supported u:object_r:arm64_memtag_bootctl_prop:s0 exact 
 
 # Wallet properties
 ro.gms.wallet.se_capability u:object_r:wallet_prop:s0 exact int
+
+baikal.               u:object_r:baikal_prop:s0
+baikalos.               u:object_r:baikal_prop:s0
+persist.baikal.         u:object_r:baikal_prop:s0
