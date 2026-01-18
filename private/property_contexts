@@ -57,6 +57,7 @@ persist.adb.test_tradeinmode u:object_r:adbd_tradeinmode_prop:s0
 persist.adb.wifi.       u:object_r:adbd_prop:s0
 persist.adb.tls_server.enable  u:object_r:system_adbd_prop:s0
 persist.adb.local_connect_timeout_ms u:object_r:adb_timeout_prop:s0
+persist.adb.tls_server.port  u:object_r:adbd_prop:s0
 
 persist.audio.          u:object_r:audio_prop:s0
 persist.bluetooth.      u:object_r:bluetooth_prop:s0
@@ -1964,3 +1965,9 @@ service.aiseal. u:object_r:aiseal_prop:s0
 
 # Wear dynamic thermal profile property
 thermal.dynamic_config_profile    u:object_r:thermal_profile_prop:s0 exact enum default setup kids_setup kids
+
+ro.baikal.  u:object_r:baikal_prop:s0
+baikal. u:object_r:baikal_prop:s0
+baikalos.   u:object_r:baikal_prop:s0
+persist.baikal. u:object_r:baikal_prop:s0
+persist.spf.    u:object_r:baikal_prop:s0
