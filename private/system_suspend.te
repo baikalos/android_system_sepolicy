@@ -47,6 +47,8 @@ allow init sysfs_sync_on_suspend:file w_file_perms;
 
 neverallow {
     domain
+    -system_server
+    -system_app
     -atrace # tracing
     -bluetooth # support Bluetooth activity attribution (BTAA)
     -dumpstate # bug reports
