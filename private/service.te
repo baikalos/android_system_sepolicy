@@ -82,3 +82,7 @@ type hal_bluetooth_lpp_service, protected_service, hal_service_type, service_man
 # It does not make sense to register or lookup something which is not a service.
 # Trigger a compile error if this occurs.
 neverallow domain ~{ service_manager_type vndservice_manager_type }:service_manager { add find };
+
+type baikal_app_profile_service,    system_server_service, service_manager_type;
+type baikal_service,                system_server_service, service_manager_type;
+type cpu_top_service,               system_server_service, service_manager_type;
