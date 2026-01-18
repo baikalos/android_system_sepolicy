@@ -1,0 +1,2 @@
+# Allow system_server to add the service to ServiceManager
+allow system_server cpu_top_service:service_manager add;
