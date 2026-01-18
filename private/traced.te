@@ -123,6 +123,7 @@ neverallow traced {
   data_file_type
   -perfetto_traces_data_file
   -trace_data_file
+  -baikal_filter_db
   with_native_coverage(`-method_trace_data_file')
 }:file ~write;
 

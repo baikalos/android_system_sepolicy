@@ -69,6 +69,8 @@ neverallow { isolated_app_all -isolated_compute_app } {
     -activity_structured_service
     -display_service
     -webviewupdate_service
+    -baikal_service
+    -baikal_app_profile_service
 }:service_manager find;
 
 # Isolated apps shouldn't be able to access the driver directly.
